@@ -5,7 +5,7 @@ export function CategoriesIndex(props) {
       {props.categories.map((category) => (
         <div key={category.id}>
           <h2>{category.name}</h2>
-          <h3>{category.description}</h3>
+          <button onClick={() => props.onShowCategory(category)}>More info</button>
         </div>
       ))}
     </div>
