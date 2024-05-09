@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export function CategoryPage() {
   const { id } = useParams(); // Extract category ID from URL
@@ -32,8 +32,8 @@ export function CategoryPage() {
         {posts.map((post) => (
           <li key={post.id}>
             <h3>{post.title}</h3>
-            <p>{post.content}</p>
-            <p>{post.author_name}</p>
+            {/* Link to navigate to the PostShowPage for this post */}
+            <Link to={`/post/${post.id}`}>View Post</Link>
           </li>
         ))}
       </ul>

@@ -4,6 +4,7 @@ import { Content } from "./Content";
 import { Footer } from "./Footer";
 import { CategoriesIndex } from "./CategoriesIndex";
 import { CategoryPage } from "./CategoryPage";
+import { PostShowPage } from "./PostShowPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Content />} /> {/* Use the "element" prop instead of wrapping component */}
           <Route path="/category/:id" element={<CategoryPage />} />{" "}
           {/* Use the "element" prop instead of wrapping component */}
+          <Route path="/post/:postId" element={<PostShowPage />} /> {/* Route for PostShowPage */}
         </Routes>
       </Router>
 
