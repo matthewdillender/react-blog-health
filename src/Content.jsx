@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { CategoriesIndex } from "./CategoriesIndex";
 import { CategoriesShow } from "./CategoriesShow";
 import { Modal } from "./Modal";
-import { CategoryPage } from "./CategoryPage";
 
 export function Content() {
   const [categories, setCategories] = useState([]);
@@ -27,16 +26,6 @@ export function Content() {
     setCurrentCategory(category);
   };
 
-  export async function fetchPostsByCategory(categoryId) {
-    try {
-      const response = await axios.get(`/api/posts?category=${categoryId}`);
-      return response.data; // Assuming response.data is an array of posts
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-      return [];
-    }
-  }
-
   const handleClose = () => {
     console.log("handleClose");
     setIsCategoriesShowVisible(false);
@@ -50,7 +39,6 @@ export function Content() {
       <Modal show={isCategoriesShowVisible} onClose={handleClose}>
         <CategoriesShow category={currentCategory} />
       </Modal>
-      <CategoryPage fetchPostsByCategory={fetchPostsByCategory} />
     </main>
   );
 }
